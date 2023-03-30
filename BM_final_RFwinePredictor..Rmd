@@ -1,0 +1,194 @@
+---
+title: "Wine Score Random Forest Predictor"
+author: "Brian Miller"
+date: "`r Sys.Date()`"
+output: html_document
+data_sourcs: "https://archive.ics.uci.edu/ml/datasets/wine+quality"
+---
+DEPENDENCIES
+```{r, echo=TRUE, message=FALSE}
+require(ggplot2)
+require(cowplot)
+require(randomForest)
+require(plyr)
+require(caret)
+```
+
+FUNCTIONS
+```{r FUNCTIONS}
+calc_bin_width = function(vector_of_values, n_divisions=30){
+  # calculates the binwidth for a given vector of values, splitting the range into n pieces
+  # returns an int, binwidth
+  range_full = max(vector_of_values) - min(vector_of_values)
+  w_bin = range_full/n_divisions
+  return(w_bin)
+}
+```
+
+LOAD DATA
+```{r LOAD DATA}
+wine_data <- read.csv("winequality-red.csv")
+```
+
+COLOR DISPLAY OF DIFFERENT WINE SCORE BINNINGS
+```{r COLOR DISPLAY OF DIFFERENT WINE SCORE BINNINGS}
+# barplot of the quality scores
+quality_counts = data.frame(table(wine_data$quality))
+names(quality_counts) = c("Quality", "Freq")
+
+p1 = ggplot(quality_counts, aes(x=Quality, y=Freq)) + 
+      geom_bar(stat = "identity")+ theme(text = element_text(size = 20))
+
+p2 = ggplot(quality_counts, aes(x=Quality, y=Freq)) + 
+      geom_bar(stat = "identity", fill = c("red","tomato","darkorange","gold2","green3","lawngreen"))+ theme(text = element_text(size = 20))
+
+p3 = ggplot(quality_counts, aes(x=Quality, y=Freq)) + 
+      geom_bar(stat = "identity", fill = c("red","red","gold2","gold2","green3","green3"))+ theme(text = element_text(size = 20))
+
+p4 = ggplot(quality_counts, aes(x=Quality, y=Freq)) + 
+        geom_bar(stat = "identity", fill = c("red","red","red","green3","green3","green3"))+ theme(text = element_text(size = 20))
+
+plot_grid(p1,p2,p3,p4, ncol = 2)
+```
+DISPLAY SOME VARIABLE CORRELATIONS
+```{r DISPLAY SOME VARIABLE CORRELATIONS}
+# alcohol
+alc_lm = lm(alcohol ~ quality, data = wine_data)
+
+ggplot(wine_data, aes(x=quality, y=alcohol)) +
+    geom_point(size=1) +
+    theme(text = element_text(size = 20)) + 
+    geom_abline(slope = alc_lm$coefficients[[2]] , intercept = alc_lm$coefficients[[1]], col = "red") + 
+    annotate("text", x=3.5, y=14.5, label="y = 0.63x + 6.88" ,col='red2')
+
+# volatile.acidity
+acidity_lm = lm(volatile.acidity ~ quality, data = wine_data)
+
+ggplot(wine_data, aes(x=quality, y=volatile.acidity)) +
+    geom_point(size=1) +
+    theme(text = element_text(size = 20)) + 
+    geom_abline(slope = acidity_lm$coefficients[[2]], intercept = acidity_lm$coefficients[[1]], col = "red")+
+    annotate("text", x=7.6, y=1.5, label="y = -0.087x + 1.016" ,col='red2')
+```
+
+DATA MUNGING
+```{r DATA MUNGING}
+# make sure that there are no NA values in the data 
+sum(is.na(wine_data))
+
+# group the scores, this:
+# 1) simplifies the classification problem
+# 2) balances the number of outcomes (so the number of outcomes is not skewed one way)
+wine_data$quality[wine_data$quality %in% c(3,4,5)] <- 1
+wine_data$quality[wine_data$quality %in% c(6,7,8)] <- 2
+
+# make a numerical version of the quality scores (for plotting purposes)
+wine_data$quality_num = wine_data$quality
+
+# rename the categorical version of the quality scores (for model training purposes)
+wine_data$quality[wine_data$quality == 1] <- "bad(3-5)"
+wine_data$quality[wine_data$quality == 2] <- "good(6-8)"
+
+wine_data$quality = as.factor(wine_data$quality) # ensure that it's a factor, not a char
+```
+DATA BASIC VIZUALIZATOINS
+```{r DATA BASIC VIZUALIZATOINS}
+num_divisions = 25
+
+# make the plots
+plt1 = ggplot(wine_data, aes(x=fixed.acidity)) + geom_histogram(binwidth = calc_bin_width(wine_data['fixed.acidity'], n_divisions = num_divisions))
+plt2 = ggplot(wine_data, aes(x=volatile.acidity)) + geom_histogram(binwidth = calc_bin_width(wine_data['volatile.acidity'], n_divisions = num_divisions))
+plt3 = ggplot(wine_data, aes(x=citric.acid)) + geom_histogram(binwidth = calc_bin_width(wine_data['citric.acid'], n_divisions = num_divisions))
+plt4 = ggplot(wine_data, aes(x=residual.sugar)) + geom_histogram(binwidth = calc_bin_width(wine_data['residual.sugar'], n_divisions = 20))
+plt5 = ggplot(wine_data, aes(x=chlorides)) + geom_histogram(binwidth = calc_bin_width(wine_data['chlorides'], n_divisions = num_divisions))
+plt6 = ggplot(wine_data, aes(x=free.sulfur.dioxide)) + geom_histogram(binwidth = calc_bin_width(wine_data['free.sulfur.dioxide'], n_divisions = num_divisions))
+plt7 = ggplot(wine_data, aes(x=total.sulfur.dioxide)) + geom_histogram(binwidth = calc_bin_width(wine_data['total.sulfur.dioxide'], n_divisions = num_divisions))
+plt8 = ggplot(wine_data, aes(x=density)) + geom_histogram(binwidth = calc_bin_width(wine_data['density'], n_divisions = num_divisions))
+plt9 = ggplot(wine_data, aes(x=pH)) + geom_histogram(binwidth = calc_bin_width(wine_data['pH'], n_divisions = num_divisions))
+plt10 = ggplot(wine_data, aes(x=sulphates)) + geom_histogram(binwidth = calc_bin_width(wine_data['sulphates'], n_divisions = num_divisions))
+plt11 = ggplot(wine_data, aes(x=alcohol)) + geom_histogram(binwidth = calc_bin_width(wine_data['alcohol'], n_divisions = 20))
+
+# display all of them in one image
+plot_grid(plt1,plt2,plt3,plt4,plt5,plt6,plt7,plt8,plt9,plt10,plt11, ncol = 4)
+```
+DATA BASIC VARIABLE CORRELATIONS
+```{r DATA BASIC CORRELATIONS}
+wine_data_agg = data.frame(aggregate(.~quality, data=wine_data, median))
+
+plt1 = ggplot(wine_data_agg, aes(x=quality, y=fixed.acidity)) + geom_bar(stat = "identity")
+plt2 = ggplot(wine_data_agg, aes(x=quality, y=volatile.acidity)) + geom_bar(stat = "identity")
+plt3 = ggplot(wine_data_agg, aes(x=quality, y=citric.acid)) + geom_bar(stat = "identity")
+plt4 = ggplot(wine_data_agg, aes(x=quality, y=residual.sugar)) + geom_bar(stat = "identity")
+plt5 = ggplot(wine_data_agg, aes(x=quality, y=chlorides)) + geom_bar(stat = "identity")
+plt6 = ggplot(wine_data_agg, aes(x=quality, y=free.sulfur.dioxide)) + geom_bar(stat = "identity")
+plt7 = ggplot(wine_data_agg, aes(x=quality, y=total.sulfur.dioxide)) + geom_bar(stat = "identity")
+plt8 = ggplot(wine_data_agg, aes(x=quality, y=density)) + geom_bar(stat = "identity")
+plt9 = ggplot(wine_data_agg, aes(x=quality, y=pH)) + geom_bar(stat = "identity")
+plt10 = ggplot(wine_data_agg, aes(x=quality, y=sulphates)) + geom_bar(stat = "identity")
+plt11 = ggplot(wine_data_agg, aes(x=quality, y=alcohol)) + geom_bar(stat = "identity")
+
+plot_grid(plt1,plt2,plt3,plt4,plt5,plt6,plt7,plt8,plt9,plt10,plt11, ncol = 4)
+
+# do a quick ANNOVA to see if any of the variables explained wine quality
+# it looks like citric.acid and residual.sugar are no significantly useful for explaining wine quality
+# also maybe free.sulfur.dioxide
+annova_outcome <- aov(quality_num ~ . - quality, data = wine_data)
+summary(annova_outcome)
+```
+RANDOM FOREST MODEL
+```{r RANDOM FOREST}
+# Split the data (80% to training, 20% to testing)
+set.seed(12345)
+samp <- sample(nrow(wine_data), 0.80 * nrow(wine_data))
+wine_data_train <- wine_data[samp, ]
+wine_data_test <- wine_data[-samp, ]
+
+# determining mtry (2 was suggested)
+tuneRF(wine_data[1:11], wine_data$quality, ntreeTry=500,
+               stepFactor=1.5,improve=0.01, trace=TRUE, plot=TRUE)
+
+### train the random forest model ###
+# number of trees: 500
+# number of variables to consider at each branch: 2
+# minimum number of terminal nodes: 2                 [lower numbers are better for classification problems]
+# 
+# I also tried the formula (quality ~ . - quality_num - volatile.acidity - residual.sugar) because
+# of the ANNOVA results above, but this actually decreased the precision scores, so I kept them
+# (I suspect this is because these two variables are correlated to other variables, and thus
+# are indirectly useful for wine score prediction, with a decision tree based approach)
+model <- randomForest::randomForest(quality ~ . - quality_num, data = wine_data_train,
+                                    ntree = 500,
+                                    mtry = 2,
+                                    nodesize = 2)
+
+# test model
+prediction <- predict(model, newdata = wine_data_test)
+
+# make results tables
+results = as.data.frame(cbind(prediction, wine_data_test$quality))
+colnames(results) = c('pred','real')
+results$correct = c(prediction == wine_data_test$quality)
+
+# make summary table of the results
+results_summary = data.frame(aggregate(correct~real, data = results, FUN = function(x){sum(x==TRUE)}))
+results_summary$was_wrong = data.frame(aggregate(correct~real, data = results, FUN = function(x){sum(x == FALSE)}))[,2]
+names(results_summary) = c("wine_score", "was_correct", "was_incorrect")
+results_summary$precision = results_summary$was_correct / (results_summary$was_correct + results_summary$was_incorrect)
+results_summary$n_training = as.data.frame(t(table(wine_data_train$quality)))$Freq
+results_summary$n_testing = as.data.frame(t(table(wine_data_test$quality)))$Freq
+results_summary$wine_score = as.data.frame(t(table(wine_data_test$quality)))$Var2
+results_summary$n_total = results_summary$n_training + results_summary$n_testing
+
+# reorder columns of results_summary (for visual purposes)
+results_summary <- results_summary[, c(1,7,5,6,2,3,4)]
+```
+
+FINAL RESULTS
+```{r FINAL RESULTS}
+# print the results
+print(model)
+confusionMatrix(prediction, wine_data_test$quality)
+print(results_summary)
+print(paste0("The overall precision of the model was: ", sum(results$correct)/nrow(results)))
+```
+
