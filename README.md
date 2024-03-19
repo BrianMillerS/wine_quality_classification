@@ -6,13 +6,13 @@
 <br>
 
 ## Table of contents
-- [Project Objective](#project-objective)
+- [Project Question](#project-objective)
 - [Methods Overview](#methods-used)
 - [Technologies](#technologies)
 - [Project Description](#project-description)
 - [Project Results](#project-results)
 
-## Project Objective
+## Project Question
 
 + **Can we predict wine quality (good vs bad) from the wine's physical and chemical properties?**  
 + What makes a wine have a better score than others?
