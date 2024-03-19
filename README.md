@@ -1,6 +1,7 @@
-<p align="center"># Predicting Wine Quality From Physical and Chemical Properties</p>
-<br>
 <h1 align="center">Predicting Wine Quality From Physical and Chemical Properties</h1>
+
+<br>
+<a href="https://nbviewer.org/github/BrianMillerS/wine_quality_classification/blob/main/wine_score_classification.ipynb" target="_blank">Jupyter Notebook Viewer</a>
 <br>
 
 ## Table of contents
