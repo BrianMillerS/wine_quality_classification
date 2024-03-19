@@ -14,7 +14,8 @@
 
 ## Project Objective
 <br>
-The purpose of this project is predict wine quality (good vs bad) from the wines physical and chemical properites. 
++ **Can we predict wine quality (good vs bad) from the wines physical and chemical properites?**  
++ What makes a wine have a better score than others?
 <br>
 
 ## Methods Overview
