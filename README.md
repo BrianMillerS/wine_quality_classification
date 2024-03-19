@@ -7,7 +7,7 @@
 
 ## Table of contents
 - [Project Objective](#project-objective)
-- [Methods Used](#methods-used)
+- [Methods Overview](#methods-used)
 - [Technologies](#technologies)
 - [Project Description](#project-description)
 - [Project Results](#project-results)
@@ -18,12 +18,23 @@
 The purpose of this project is predict wine quality (good vs bad) from the wines physical and chemical properites. 
 <br>
 
-## Methods Used
+## Methods Overview
 + Exploratory Data Analysis
-+ Data Visualization
-+ Model Building (Logistic Regression, Naive Bayes, Random Forest, XGBoost)
+  + Checking Data Quality
+  + ANOVA for variable selection
++ Model Building
+  + Logistic Regression
+  + Naive Bayes
+  + Random Forest
+  + XGBoost
 + Model Parameter Tuning
+  + Grid Search
+  + Iterative Randomized Search
 + Model Evaluation
+  + Accuracy
+  + F1 Score
+  + ROC Curve/ Confusion Matrix
+  + Identifying the Most Important Variables for Wine Quality Prediction
 
 ## Technologies:
 + matplotlib
