@@ -6,8 +6,8 @@
 <br>
 
 ## Table of contents
-- [Project Question](#project-objective)
-- [Methods Overview](#methods-used)
+- [Project Question](#project-question)
+- [Methods Overview](#methods-overview)
 - [Technologies](#technologies)
 - [Project Description](#project-description)
 - [Project Results](#project-results)
