@@ -1,3 +1,4 @@
+<img src="images/title_photo.jpg" style>
 <h1 align="center">Predicting Wine Quality From Physical and Chemical Properties</h1>
 
 <br>
@@ -48,7 +49,7 @@ Between December 13th and December 27th, most of the data science job posts came
 + San Diego: 18 Jobs
 + Santa Clara: 17 Jobs
 <p align="center">
-<img src="Images/Job per City in CA.png" style>
+
 </p>
 
 However, based on each region's population and the number of job postings the results are different if we consider the number of job posts based on the 100,000 population rate. The count of job posts per location was divided by the matching city's population and multiplied by 100,000. As a result, the top 3 cities were:
