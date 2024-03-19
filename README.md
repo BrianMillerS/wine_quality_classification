@@ -12,10 +12,10 @@
 - [Project Description](#project-description)
 - [Project Results](#project-results)
 
-## Project Question
+## Project Overview
 
-+ **Can we predict wine quality (good vs bad) from the wine's physical and chemical properties?**  
-+ What makes a wine have a better score than others?
+This project delved into predicting wine quality based on physical and chemical traits using machine learning. We experimented with four models: XGBoost, Random Forest, Logistic Regression, and Naive Bayes. XGBoost outperformed other models due to its superior handling of complex variable interactions and its flexibility in fine-tuning, achieving an accuracy of 0.85 and an F1 Score of 0.86. Interestingy, higher alcohol content is a major indicator of quality, alongside factors like sulphate content and acidity, which contribute significantly to a wine's aroma and flavor.
+
 
 ## Methods Overview
 + Exploratory Data Analysis
@@ -45,6 +45,9 @@
 ## Project Description:
 [(Back to top)](#table-of-contents)
 
+This project explores the intriguing question of whether wine quality can be predicted from its physical and chemical properties. Utilizing a dataset that encapsulates various aspects of wine, the analysis delves into understanding what factors contribute to a wine's quality. Through a thorough Exploratory Data Analysis, the project identifies key variables and their relationships. Significant methodologies include ANOVA for feature selection and an extensive model-building phase with Logistic Regression, Naive Bayes, Random Forest, and XGBoost. The project stands out for its meticulous approach to parameter tuning and model evaluation, striving to achieve the most accurate predictions.
+
+
 <img src="images/variable_distributions.png" style>
 
 <img src="images/data_binning.png" style>
@@ -55,6 +58,8 @@
 
 ## Project Results:
 [(Back to top)](#table-of-contents)
+
+The results of this project provide insightful conclusions into wine quality prediction. The various models implemented showed differing levels of efficacy, with the Random Forest and XGBoost models standing out for their high accuracy and interpretability. The findings highlight the importance of specific wine properties in determining quality and offer a robust framework for future predictive analysis in the domain. Detailed results include model comparison tables, ROC curves, confusion matrices, and feature importance graphs, underscoring the comprehensive nature of this analysis.
 
 <img src="images/results_summary_table.png" style>
 
