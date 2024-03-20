@@ -9,7 +9,6 @@
 - [Project Overview](#Project-Overview)
 - [Description of the Data](#Description-of-the-Data)
 - [Methods Overview](#methods-overview)
-- [Technologies](#technologies)
 - [Project Description](#project-description)
 - [Project Results](#project-results)
 
@@ -37,14 +36,6 @@ The data was downloaded from <a href="https://archive.ics.uci.edu/dataset/186/wi
   + F1 Score
   + ROC Curve/ Confusion Matrix
   + Identifying the Most Important Variables for Wine Quality Prediction
-
-## Technologies:
-[(Back to top)](#table-of-contents)
-+ matplotlib
-+ seaborn
-+ scipy
-+ sklearn
-
 
 ## Project Description:
 [(Back to top)](#table-of-contents)
