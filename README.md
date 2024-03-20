@@ -6,6 +6,8 @@
 <br>
 
 ## Table of contents
+- [Project Overview](#Project-Overview)
+- [Description of the Data](#Description-of-the-Data)
 - [Methods Overview](#methods-overview)
 - [Technologies](#technologies)
 - [Project Description](#project-description)
@@ -18,6 +20,7 @@ Predicting wine quality based on physical and chemical traits using machine lear
 The data was downloaded from <a href="https://archive.ics.uci.edu/dataset/186/wine+quality" target="_blank">UC Irvine’s curated repository</a> of datasets for machine learning. The data consisted of a single table with 1600 rows, each containing data on a specific portuguese red wine variant. Along with the wine’s quality score (the median score from three professional wine tasters) the table also had eleven other columns with measured physicochemical properties.
 
 ## Methods Overview
+[(Back to top)](#table-of-contents)
 + Exploratory Data Analysis
   + Checking Data Quality
   + ANOVA for Variable Selection
@@ -36,6 +39,7 @@ The data was downloaded from <a href="https://archive.ics.uci.edu/dataset/186/wi
   + Identifying the Most Important Variables for Wine Quality Prediction
 
 ## Technologies:
+[(Back to top)](#table-of-contents)
 + matplotlib
 + seaborn
 + scipy
