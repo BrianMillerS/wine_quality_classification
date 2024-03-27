@@ -12,7 +12,9 @@
 - [Project Summary](#project-summary)
 
 # Project Overview
-Predicting wine quality based on physical and chemical traits using machine learning. I experimented with four models: XGBoost, Random Forest, Logistic Regression, and Naive Bayes. XGBoost outperformed other models due to its superior handling of complex variable interactions and its flexibility in fine-tuning, achieving an accuracy of 0.85 and an F1 Score of 0.86. Interestingy, higher alcohol content is a major indicator of quality, alongside factors like sulphate content and acidity, which contribute significantly to a wine's aroma and flavor.
+- I experimented with four models: XGBoost, Random Forest, Logistic Regression, and Naive Bayes.
+- XGBoost outperformed other models due to its superior handling of complex variable interactions and its flexibility in fine-tuning, achieving an accuracy of 0.85 and an F1 Score of 0.86.
+- Interestingy, higher alcohol content is a major indicator of quality, alongside factors like sulphate content and acidity, which contribute significantly to a wine's aroma and flavor.
 
 <img src="images/results_summary_table.png" width="532" height="225">
 
