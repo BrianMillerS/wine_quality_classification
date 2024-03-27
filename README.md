@@ -15,7 +15,6 @@
 Predicting wine quality based on physical and chemical traits using machine learning. I experimented with four models: XGBoost, Random Forest, Logistic Regression, and Naive Bayes. XGBoost outperformed other models due to its superior handling of complex variable interactions and its flexibility in fine-tuning, achieving an accuracy of 0.85 and an F1 Score of 0.86. Interestingy, higher alcohol content is a major indicator of quality, alongside factors like sulphate content and acidity, which contribute significantly to a wine's aroma and flavor.
 
 <img src="images/results_summary_table.png" width="532" height="225">
-<img src="images/XGB_gain.png" width="532" height="391">
 
 # Description of the Data
 The data was downloaded from <a href="https://archive.ics.uci.edu/dataset/186/wine+quality" target="_blank">UC Irvine’s curated repository</a> of datasets for machine learning. The data consisted of a single table with 1600 rows, each containing data on a specific portuguese red wine variant. Along with the wine’s quality score (the median score from three professional wine tasters) the table also had eleven other columns with measured physicochemical properties.
@@ -40,8 +39,8 @@ The data was downloaded from <a href="https://archive.ics.uci.edu/dataset/186/wi
 
 # Project Summary
 - [Exploratory Data Analysis](#Exploratory-Data-Analysis)
-- [How Random Forests Work](#How-Random-Forests-Work)
 - [Model Building](Model-Building)
+- [How Random Forests Work](#How-Random-Forests-Work)
 - [Model Parameter Tuning](Model-Parameter-Tuning)
 - [Model Evaluation](Model-Evaluation)
 
@@ -60,10 +59,12 @@ In order to make this classificaiton problem a little easier we will be binning 
 <br>
 
 ## Model Building
-  - In order to train our models, the data was split into 80% training/ 20% testing.
+  - In order to train our models, the data was split into 80% training/ 20% testing
+  - Using the default models from Tensorflow here were the results:
 <br>
 <img src="images/results_summary_table.png" width="532" height="225">
 <br>
+From this point on in the analyis, we will focus on the two top performing models: Random Forests, and XGBoost
 
 ## How Random Forests Work
 Given the inter-dependencies of the predictor variables, using tree-based methods might yield the best results. Random Forests and other more comlpex models like XGBoost can leverage the indirect correlations to the outcome variable, enhancing the models performance. 
