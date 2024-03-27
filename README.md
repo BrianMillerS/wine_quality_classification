@@ -44,27 +44,42 @@ The data was downloaded from <a href="https://archive.ics.uci.edu/dataset/186/wi
 [(Back to top)](#table-of-contents)
 
 #### Exploratory Data Analysis
-First lets take a look at all of the data in our dataset. We have 11 prdictor variables, and 1 outcome variable (quality).
+First lets take a look at all of the data in our dataset. We have:
+  - 11 prdictor variables
+  - 1 outcome variable (quality)
 <img src="images/variable_distributions.png" style>
+<br>
+
 In order to make this classificaiton problem a little easier we will be binning wines into 'good' and 'bad' as follows:
 <img src="images/data_binning.png" style>
+<br>
 
+#### How do Random Forest Work
+Given the inter-dependencies of the predictor variables, using tree-based methods might yield the best results. Random Forests and other more comlpex models like XGBoost can leverage the indirect correlations to the outcome variable, enhancing the models performance. 
 <img src="images/RF_building_a_forest_explained.png" style>
+<br>
 
+Once a Random Forest is created, there are a few model parameters to keep in mind that we can tweek to improve it's performance.
 <img src="images/RF_parameter_tuning_explained.png" style>
+<br>
 
 ## Project Results:
 [(Back to top)](#table-of-contents)
 
-The results of this project provide insightful conclusions into wine quality prediction. The various models implemented showed differing levels of efficacy, with the Random Forest and XGBoost models standing out for their high accuracy and interpretability. The findings highlight the importance of specific wine properties in determining quality and offer a robust framework for future predictive analysis in the domain. Detailed results include model comparison tables, ROC curves, confusion matrices, and feature importance graphs, underscoring the comprehensive nature of this analysis.
+
 
 <img src="images/results_summary_table.png" style>
+<br>
 
 <img src="images/RF_results.png" style>
+<br>
 
 <img src="images/XGB_results.png" style>
+<br>
 
 <img src="images/XBG_roc.png" style>
+<br>
+
 <img src="images/XGB_confusion.png" style>
 <img src="images/XGB_correlation.png" style>
 <img src="images/XGB_gain.png" style>
