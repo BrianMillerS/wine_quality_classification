@@ -45,11 +45,14 @@ The data was downloaded from <a href="https://archive.ics.uci.edu/dataset/186/wi
 - [Model Evaluation](Model-Evaluation)
 
 <br>  
+
 ## Exploratory Data Analysis  
-First lets take a look at all of the data in our dataset.   
+
+First lets take a look at all of the data in our dataset.  
 We have:  
   - 11 prdictor variables  
-  - 1 outcome variable (quality)  
+  - 1 outcome variable (quality)
+
 <img src="images/variable_distributions.png" style>  
 <br>
 
