@@ -6,15 +6,17 @@
 <br>
 
 # Table of contents
-- [Project Overview](#Project-Overview)
+- [Project Takeaway](#Project-Takeaway)
 - [Description of the Data](#Description-of-the-Data)
 - [Methods Overview](#methods-overview)
 - [Project Summary](#project-summary)
 
-# Project Overview
-- I experimented with four models: XGBoost, Random Forest, Logistic Regression, and Naive Bayes.
-- XGBoost outperformed other models due to its superior handling of complex variable interactions and its flexibility in fine-tuning, achieving an accuracy of 0.85 and an F1 Score of 0.86.
-- Interestingy, higher alcohol content is a major indicator of quality, alongside factors like sulphate content and acidity, which contribute significantly to a wine's aroma and flavor.
+# Project Takeaway
+- Four models were tested: XGBoost, Random Forest, Logistic Regression, and Naive Bayes
+- XGBoost outperformed other models due to its superior handling of complex variable interactions and its flexibility in fine-tuning
+- XGBoost achieved a test accuracy of 0.85, F1 Score of 0.86, and an ROC AUC of 0.91
+- Higher alcohol content was the best indicator of increased wine quality
+- Sulphate content and acidity were the next best indicators of increased wine quality, they may contribute to a wine's aroma and flavor
 
 <img src="images/results_summary_table.png" width="532" height="225">
 
