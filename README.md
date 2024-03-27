@@ -40,11 +40,10 @@ The data was downloaded from <a href="https://archive.ics.uci.edu/dataset/186/wi
 ## Project Description:
 [(Back to top)](#table-of-contents)
 
-This project explores the intriguing question of whether wine quality can be predicted from its physical and chemical properties. Utilizing a dataset that encapsulates various aspects of wine, the analysis delves into understanding what factors contribute to a wine's quality. Through a thorough Exploratory Data Analysis, the project identifies key variables and their relationships. Significant methodologies include ANOVA for feature selection and an extensive model-building phase with Logistic Regression, Naive Bayes, Random Forest, and XGBoost. The project stands out for its meticulous approach to parameter tuning and model evaluation, striving to achieve the most accurate predictions.
-
-
+#### Exploratory Data Analysis
+First lets take a look at all of the data in our dataset. We have 11 prdictor variables, and 1 outcome variable (quality).
 <img src="images/variable_distributions.png" style>
-
+In order to make this classificaiton problem a little easier we will be binning wines into 'good' and 'bad' as follows:
 <img src="images/data_binning.png" style>
 
 <img src="images/RF_building_a_forest_explained.png" style>
