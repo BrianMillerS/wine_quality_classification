@@ -9,8 +9,7 @@
 - [Project Overview](#Project-Overview)
 - [Description of the Data](#Description-of-the-Data)
 - [Methods Overview](#methods-overview)
-- [Project Description](#project-description)
-- [Project Results](#project-results)
+- [Project Summary](#project-summary)
 
 ## Project Overview
 Predicting wine quality based on physical and chemical traits using machine learning. We experimented with four models: XGBoost, Random Forest, Logistic Regression, and Naive Bayes. XGBoost outperformed other models due to its superior handling of complex variable interactions and its flexibility in fine-tuning, achieving an accuracy of 0.85 and an F1 Score of 0.86. Interestingy, higher alcohol content is a major indicator of quality, alongside factors like sulphate content and acidity, which contribute significantly to a wine's aroma and flavor.
@@ -40,21 +39,26 @@ The data was downloaded from <a href="https://archive.ics.uci.edu/dataset/186/wi
   + ROC Curve/ Confusion Matrix
   + Identifying the Most Important Variables for Wine Quality Prediction
 
-## Project Description:
-[(Back to top)](#table-of-contents)
+## Project Summary
+- [Exploratory Data Analysis](#Exploratory-Data-Analysis)
+- [How Random Forests Work](#How-Random-Forests-Work)
+- 
+# Exploratory Data Analysis:
 
-#### Exploratory Data Analysis
-First lets take a look at all of the data in our dataset. We have:
+
+First lets take a look at all of the data in our dataset. 
+We have:
   - 11 prdictor variables
   - 1 outcome variable (quality)
 <img src="images/variable_distributions.png" style>
 <br>
 
 In order to make this classificaiton problem a little easier we will be binning wines into 'good' and 'bad' as follows:
+<br>
 <img src="images/data_binning.png" style>
 <br>
 
-#### How do Random Forest Work
+# How Random Forests Work
 Given the inter-dependencies of the predictor variables, using tree-based methods might yield the best results. Random Forests and other more comlpex models like XGBoost can leverage the indirect correlations to the outcome variable, enhancing the models performance. 
 <img src="images/RF_building_a_forest_explained.png" style>
 <br>
