@@ -47,6 +47,7 @@ The data was downloaded from <a href="https://archive.ics.uci.edu/dataset/186/wi
 - [How Random Forests Work](#How-Random-Forests-Work)
 - [Model Parameter Tuning](Model-Parameter-Tuning)
 - [Model Evaluation](Model-Evaluation)
+- [Determining Important Variables](Determining-Important-Variables)
 
 <br>  
 
@@ -89,13 +90,13 @@ RF and XGBoost performed the best, let's take both models, tune them, and see if
 <br>
 A GridSearch was performed on the RF model, this approach is more time and resource intensive, but it is exhaustive, so we will know that we will be getting the bets result. 
 <br>
-<img src="images/RF_results.png" style>
+<img src="images/RF_results.png" width="498" height="200">
 <br>
 
 #### XGBoost Results
 A Randomized search was performed on the XGBoost mode, this approach is faster, not exhaustive, but it is quick. To help ensure that we were getting still good results I did the Randmoized search 10 times and picked the best result.
 <br>
-<img src="images/XGB_results.png" style>
+<img src="images/XGB_results.png" width="495" height="298">
 <br>
 
 ## Model Evaluation
