@@ -66,7 +66,8 @@ In order to make this classification problem a little easier we will be binning 
 <img src="images/data_binning.png" style>
 <br>
 
-## Model Building
+## Model Building  
+
   - In order to train our models, the data was split into 80% training/ 20% testing
   - Using the default models from Tensorflow here were the results:
 <br>
@@ -74,7 +75,8 @@ In order to make this classification problem a little easier we will be binning 
 <br>
 From this point on in the analysis, we will focus on the two top performing models: Random Forests, and XGBoost
 
-## How Random Forests Work
+## How Random Forests Work  
+
 Given the inter-dependencies of the predictor variables, using tree-based methods might yield the best results. Random Forests and other more complex models like XGBoost can leverage the indirect correlations to the outcome variable, enhancing the models performance. 
 <br>
 <img src="images/RF_building_a_forest_explained.png" style>
@@ -124,6 +126,6 @@ Both Alcohol and Sulphates are positively correlated with wine score.
 <br>
 <img src="images/XGB_gain.png" style>
 The scatter plots and feature importance graph together suggest that while many factors contribute to wine quality, alcohol content is potentially the most predictive, followed by sulphates.  
- 
+<br>
 - The least important features suggest that within this dataset and model, aspects like pH and chlorides are not key drivers in predicting wine quality.
 - Features related to acidity, such as volatile acidity and fixed acidity, also play a significant role in the model's predictions.
