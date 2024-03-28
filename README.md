@@ -103,9 +103,13 @@ A Randomized search was performed on the XGBoost mode, this approach is faster, 
 Now with the best model selected, and parameters tuned, we can evaluate the model and see how it performed.
 <br>
 <img src="images/XGB_confusion.png" style>
+ - True Positives (TP): 144
+ - True Positives (TP): 144
+ - False Positives (FP): 25
+ - False Negatives (FN): 27
 <br>
 
- - The model has an AUC of 0.91, which suggests it has a high accuracy in distinguishing between the classes
+The model has an AUC of 0.91, which suggests it has a high accuracy in distinguishing between the classes
 <br>
 <img src="images/XBG_roc.png" style>
 <br>
