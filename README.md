@@ -54,7 +54,7 @@ The data was downloaded from <a href="https://archive.ics.uci.edu/dataset/186/wi
 
 First lets take a look at all of the data in our dataset.  
 We have:  
-  - 11 prdictor variables  
+  - 11 predictor variables  
   - 1 outcome variable (quality)
 
 <img src="images/variable_distributions.png" style>  
@@ -92,18 +92,29 @@ A GridSearch was performed on the RF model, this approach is more time and resou
 <img src="images/RF_results.png" style>
 <br>
 
+#### XGBoost Results
+A Randomized search was performed on the XGBoost mode, this approach is faster, not exhaustive, but it is quick. To help ensure that we were getting still good results I did the Randmoized search 10 times and picked the best result.
 <br>
 <img src="images/XGB_results.png" style>
 <br>
 
 ## Model Evaluation
-
-<img src="images/XBG_roc.png" style>
+Now with the best model selected, and parameters tuned, we can evaluate the model and see how it performed.
+<br>
+<img src="images/XGB_confusion.png" style>
 <br>
 
-<img src="images/XGB_confusion.png" style>
+ - The model has an AUC of 0.91, which suggests it has a high accuracy in distinguishing between the classes
+<br>
+<img src="images/XBG_roc.png" style>
+<br>
+Overall, the model appears to be performing well, with good predictive power and a balance of error types that lean towards correct predictions.
+
+## Determining Important Variables
+<br>
 <img src="images/XGB_correlation.png" style>
+<br>
+
+<br>
 <img src="images/XGB_gain.png" style>
-
-
-
+<br>
