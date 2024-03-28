@@ -43,11 +43,11 @@ The data was downloaded from <a href="https://archive.ics.uci.edu/dataset/186/wi
 
 # Project Summary
 - [Exploratory Data Analysis](#Exploratory-Data-Analysis)
-- [Model Building](Model-Building)
+- [Model Building](#Model-Building)
 - [How Random Forests Work](#How-Random-Forests-Work)
-- [Model Parameter Tuning](Model-Parameter-Tuning)
-- [Model Evaluation](Model-Evaluation)
-- [Determining Important Variables](Determining-Important-Variables)
+- [Model Parameter Tuning](#Model-Parameter-Tuning)
+- [Model Evaluation](#Model-Evaluation)
+- [Determining Important Variables](#Determining-Important-Variables)
 
 <br>  
 
