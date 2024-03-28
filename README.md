@@ -12,7 +12,7 @@
 - [Project Summary](#project-summary)
 
 # Project Takeaway
-The goal of this project is to better understand what chemical and physical characteristics make a good wine. Using measurements from 1600 red wines, and their median professional wine score, we'll use machine learning to predict wine scores and what wine characteristics are the most important.
+The goal of this project is to better understand what chemical and physical characteristics make a good wine. Using measurements from 1600 red wines, and their median professional wine score, we'll use machine learning to predict wine scores and what wine characteristics lead to better wine scores.
 - Four models were tested: XGBoost, Random Forest, Logistic Regression, and Naive Bayes
 - XGBoost outperformed other models due to its superior handling of complex variable interactions and its flexibility in fine-tuning
 - XGBoost achieved a test accuracy of 0.85, F1 Score of 0.86, and an ROC AUC of 0.91
