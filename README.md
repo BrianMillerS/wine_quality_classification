@@ -88,7 +88,7 @@ Once a Random Forest is created, there are a few model parameters to keep in min
 <br>
 
 ## Model Parameter Tuning
-RF and XGBoost performed the best, let's take both models, tune them, and see if we can improve them further
+RF and XGBoost performed the best, let's take both models, tune them, and see if we can improve them further.
 <br>
 A GridSearch was performed on the RF model, this approach is more time and resource intensive, but it is exhaustive, so we will know that we will be getting the best result. 
 <br>
