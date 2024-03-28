@@ -127,5 +127,6 @@ Both Alcohol and Sulphates are positively correlated with wine score.
 <img src="images/XGB_gain.png" style>
 The scatter plots and feature importance graph together suggest that while many factors contribute to wine quality, alcohol content is potentially the most predictive, followed by sulphates.  
 <br>
+  
 - The least important features suggest that within this dataset and model, aspects like pH and chlorides are not key drivers in predicting wine quality.
 - Features related to acidity, such as volatile acidity and fixed acidity, also play a significant role in the model's predictions.
