@@ -34,8 +34,8 @@ The data was downloaded from <a href="https://archive.ics.uci.edu/dataset/186/wi
   + Random Forest
   + XGBoost
 + Model Parameter Tuning
-  + Grid Search
-  + Iterative Randomized Search
+  + Grid Search for Random Forest
+  + Iterative Randomized Search for XGBoost
 + Model Evaluation
   + Accuracy
   + F1 Score
